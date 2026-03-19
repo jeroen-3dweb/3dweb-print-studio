@@ -2,11 +2,13 @@
 Contributors: jtermaat
 Tags: 3d, print, customization, visualization, ecommerce
 Requires at least: 5.0
-Tested up to: 6.6
-Requires PHP: 7.0.0
+Tested up to: 6.9
+Requires PHP: 7.4
 Stable tag: 1.0.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
+
+A white-label WooCommerce integration for real-time 3D print design sessions with design references in orders.
 
 == Description ==
 
@@ -30,6 +32,27 @@ Let customers visualize, customize and approve print designs instantly — fully
 *   **Clear**: No unnecessary complexity.
 *   **Creative**: A design-led experience.
 *   **Scalable**: API-first and modular architecture.
+
+== External services ==
+
+This plugin connects to external 3DWeb services to run and complete the print-design flow.
+
+Service: 3DWeb API and 3DWeb-hosted design assets (including `3dweb.io` domains).
+
+Purpose:
+- Create/start a design session for the selected WooCommerce product.
+- Redirect the customer to the hosted 3DWeb design environment and back to your site.
+- Retrieve generated session assets (preview image URLs and design file URLs) for product/cart/order display.
+- Download generated design files from allowed 3DWeb hosts when a user clicks a download link.
+
+Data sent and when:
+- On session start (customer action): product SKU/identifier and callback URL.
+- On return/session display: session reference is used to request related session assets.
+- On design download (user action): WordPress requests the design file URL from 3DWeb-hosted domains.
+
+This service is provided by 3DWeb:
+- Terms of Use: https://3dweb.io/terms
+- Privacy Policy: https://3dweb.io/privacy
 
 == Installation ==
 

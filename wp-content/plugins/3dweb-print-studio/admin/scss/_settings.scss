@@ -6,12 +6,12 @@
     font-size: 1em;
     line-height: 1.5em;
     color: #3b3b3b;
+    margin-top: 0;
+    margin-bottom: 18px;
   }
 
-  &__settings p.warning {
-    background-color: #eae3c1;
-    padding: 0.5em;
-    font-size: 0.8em;
+  &__settings__intro {
+    max-width: 760px;
   }
 
   &__button {
@@ -19,12 +19,13 @@
   }
 
   &__settings {
-    background-color: #f6f6f6;
-    padding: 30px 10px 10px 10px;
+    background-color: #f7f8fa;
+    padding: 28px 24px 20px 24px;
     min-height: 300px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    border-radius: 10px;
 
     a {
       text-decoration: none;
@@ -33,47 +34,54 @@
 
     &__holder {
       display: flex;
-      flex-direction: row;
-      justify-content: flex-end;
-      align-items: center;
-    }
-
-    &__upload-thumb {
-      width: 80px;
-      margin: 0 10px;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 10px;
+      margin-top: 18px;
+      padding-top: 16px;
+      border-top: 1px solid #d9dfe7;
     }
 
     &-holder {
-      padding: 10px;
+      padding: 0;
       display: flex;
       align-items: flex-start;
       flex-direction: column;
       align-content: flex-start;
-      max-width: 400px;
+      max-width: 480px;
+      width: 100%;
     }
 
     &-holder__description {
-      margin-top: 2px;
-      font-size: 0.8em;
+      margin-top: 4px;
+      font-size: 12px;
+      line-height: 1.4;
+      color: #6b7280;
       display: inline-block;
     }
 
-
     &__table {
       display: grid;
-      grid-template-columns: max-content 1fr;
-      gap: 15px 30px;
+      grid-template-columns: 1fr;
+      gap: 14px;
     }
 
     &__row {
-      display: contents;
+      display: grid;
+      grid-template-columns: minmax(230px, 320px) minmax(220px, 1fr);
+      align-items: start;
+      gap: 14px 24px;
+      background: #ffffff;
+      border: 1px solid #d9dfe7;
+      border-radius: 8px;
+      padding: 14px 16px;
 
-      & > div {
-        //border-bottom: 1px solid colors.$back-ground-grey;
+      &--actions {
+        align-items: center;
+      }
 
-        &:first-child > div {
-          white-space: nowrap;
-        }
+      & > div:first-child > div {
+        white-space: normal;
       }
 
       &:last-of-type > div {
@@ -81,8 +89,108 @@
       }
     }
 
+    &__meta {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
     &__label {
       font-weight: 600;
+      color: #1f2937;
+    }
+
+    &__input[type="text"],
+    &__input[type="number"],
+    &__input[type="password"] {
+      width: 100%;
+      max-width: 420px;
+      min-height: 38px;
+      box-sizing: border-box;
+    }
+
+    &__input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      margin-top: 8px;
+    }
+
+    &__actions {
+      width: 100%;
+      max-width: 420px;
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 10px;
+      min-height: 40px;
+    }
+  }
+
+  &__settings-holder select,
+  &__settings-holder .dweb_ps__settings__input:not([type="checkbox"]) {
+    width: 100%;
+    max-width: 420px;
+    box-sizing: border-box;
+  }
+
+  &__settings-holder select[name="dweb_ps_configurator_host_version"] {
+    width: 160px;
+    max-width: 160px;
+  }
+
+  &__auth-result {
+    margin: 0;
+    min-height: 18px;
+    line-height: 1.4;
+    display: flex;
+    align-items: center;
+  }
+
+  #dweb_ps-test-auth {
+    align-self: center;
+  }
+
+  @media (max-width: 900px) {
+    &__settings__actions {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    #dweb_ps-test-auth {
+      align-self: flex-start;
+    }
+  }
+
+  &__error {
+    margin: 0;
+    color: #b42318;
+    font-size: 13px;
+  }
+
+  &__success {
+    margin: 0;
+    color: #0f7b34;
+    font-size: 13px;
+  }
+
+  @media (max-width: 782px) {
+    &__settings {
+      padding: 18px 14px 14px 14px;
+    }
+
+    &__settings__row {
+      grid-template-columns: 1fr;
+      gap: 10px;
+      padding: 12px;
+    }
+
+    &__settings__holder {
+      align-items: stretch;
+    }
+
+    &__button--normal {
+      min-width: 100%;
     }
   }
 }

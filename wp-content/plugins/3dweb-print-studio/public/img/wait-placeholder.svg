@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" role="img" aria-labelledby="title desc">
+  <title id="title">Loading preview</title>
+  <desc id="desc">Temporary placeholder shown while the product preview image is loading.</desc>
+  <rect width="600" height="600" fill="#f6f7f7"/>
+  <rect x="75" y="75" width="450" height="450" rx="24" fill="#ffffff" stroke="#dcdcde" stroke-width="8"/>
+  <circle cx="300" cy="240" r="72" fill="#dcdcde"/>
+  <path d="M165 420l84-96 78 72 60-66 48 90H165z" fill="#c3c4c7"/>
+</svg>

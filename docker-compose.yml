@@ -18,6 +18,7 @@ services:
     env_file:
       - .env
     volumes:
+      - wp_content_data:/var/www/html/wp-content
       - ./wp-content/plugins/3dweb-print-studio:/var/www/html/wp-content/plugins/3dweb-print-studio:delegated
     networks:
       - wpconfigurator
@@ -47,3 +48,4 @@ networks:
 
 volumes:
   mysql_data_wp:
+  wp_content_data:

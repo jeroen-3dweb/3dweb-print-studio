@@ -38,7 +38,21 @@
     color: inherit;
   }
 
-  &--outlined {
-    text-align: center;
+  &--primary {
+    background-color: colors.$button-background-color;
+    color: #ffffff;
+    font-weight: 600;
+    margin-top: 0;
+
+    &:hover {
+      background-color: color.adjust(colors.$button-background-color, $lightness: -5%);
+      color: #ffffff;
+    }
+
+    &:active {
+      background-color: color.adjust(colors.$button-background-color, $lightness: -10%);
+      color: #ffffff;
+      border-color: color.adjust(colors.$button-background-color, $lightness: -10%);
+    }
   }
 }
