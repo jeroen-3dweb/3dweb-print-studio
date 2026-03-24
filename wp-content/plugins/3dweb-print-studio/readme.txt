@@ -10,9 +10,10 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 Let customers easily customize simple print products like packaging, cups, and coasters with instant live 3D preview.
 
-Demo: https://feestbekers.nl (this is where you can view the plugin demo, start with the "Start Configuration" button on a product page)
 
 == Description ==
+
+Demo: https://feestbekers.nl (this is where you can view the plugin demo, start with the "Start Configuration" button on a product page)
 
 **Design simple print products in real-time 3D.**
 
@@ -41,7 +42,7 @@ Let customers design, preview, and approve print artwork instantly — fully bra
 == External services ==
 
 This plugin connects to external 3DWeb services to run and complete the print-design flow.
-
+mmmmmmmmmm
 Service: 3DWeb API and 3DWeb-hosted design assets (including `3dweb.io` domains).
 
 Purpose:
