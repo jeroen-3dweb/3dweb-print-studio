@@ -13,7 +13,7 @@ Let customers easily customize simple print products like packaging, cups, and c
 
 == Description ==
 
-Demo: https://feestbekers.nl (this is where you can view the plugin demo, start with the "Start Configuration" button on a product page)
+Demo: [View the plugin demo on feestbekers.nl](https://feestbekers.nl) (start with the "Start Configuration" button on a product page)
 
 **Design simple print products in real-time 3D.**
 
@@ -60,8 +60,8 @@ Data sent and when:
 
 This service is provided by 3DWeb:
 
-* Terms of Use: https://3dweb.io/terms
-* Privacy Policy: https://3dweb.io/privacy
+* Terms of Use: [https://3dweb.io/terms](https://3dweb.io/terms)
+* Privacy Policy: [https://3dweb.io/privacy](https://3dweb.io/privacy)
 
 == Installation ==
 
