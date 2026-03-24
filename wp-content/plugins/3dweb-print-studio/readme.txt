@@ -1,6 +1,6 @@
-=== Simple Print Customizer for WooCommerce – Packaging, Cups & More ===
+=== 3DWeb Print Studio — Simple Print Customizer for WooCommerce ===
 Contributors: jtermaat
-Tags: simple product customizer, print customizer, woocommerce product customizer, packaging customizer, box design tool
+Tags: simple product customizer, print customizer, woocommerce product customizer, packaging customizer, print design
 Requires at least: 5.0
 Tested up to: 6.9
 Requires PHP: 7.4
@@ -8,8 +8,7 @@ Stable tag: 1.0.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Let customers easily customize simple print products like packaging, cups, and coasters with instant live 3D preview.
-
+Let customers easily customize simple print products like packaging or cups with instant live 3D preview.
 
 == Description ==
 
@@ -42,7 +41,7 @@ Let customers design, preview, and approve print artwork instantly — fully bra
 == External services ==
 
 This plugin connects to external 3DWeb services to run and complete the print-design flow.
-mmmmmmmmmm
+
 Service: 3DWeb API and 3DWeb-hosted design assets (including `3dweb.io` domains).
 
 Purpose:
