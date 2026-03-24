@@ -75,6 +75,7 @@ else
 
 	git config --global user.email "10upbot+github@10up.com"
 	git config --global user.name "10upbot on GitHub"
+	git config --global --add safe.directory "$GITHUB_WORKSPACE"
 
 	# If there's no .gitattributes file, write a default one into place
 	if [[ ! -e "$GITHUB_WORKSPACE/.gitattributes" ]]; then

@@ -35,9 +35,17 @@ fi
 echo "ℹ︎ SLUG is $SLUG"
 
 # Does it even make sense for VERSION to be editable in a workflow definition?
+SHOULD_TAG=false
 if [[ -z "$VERSION" ]]; then
-	VERSION="${GITHUB_REF#refs/tags/}"
-	VERSION="${VERSION#v}"
+	if [[ "$GITHUB_REF" == refs/tags/* ]]; then
+		VERSION="${GITHUB_REF#refs/tags/}"
+		VERSION="${VERSION#v}"
+		SHOULD_TAG=true
+	else
+		VERSION="${GITHUB_REF#refs/heads/}"
+	fi
+else
+	SHOULD_TAG=true
 fi
 echo "ℹ︎ VERSION is $VERSION"
 
@@ -75,6 +83,7 @@ else
 
 	git config --global user.email "10upbot+github@10up.com"
 	git config --global user.name "10upbot on GitHub"
+	git config --global --add safe.directory "$GITHUB_WORKSPACE"
 
 	# If there's no .gitattributes file, write a default one into place
 	if [[ ! -e "$GITHUB_WORKSPACE/.gitattributes" ]]; then
@@ -119,9 +128,13 @@ svn add . --force > /dev/null
 # Also suppress stdout here
 svn status | grep '^\!' | sed 's/! *//' | xargs -I% svn rm %@ > /dev/null
 
-# Copy tag locally to make this a single commit
-echo "➤ Copying tag..."
-svn cp "trunk" "tags/$VERSION"
+if $SHOULD_TAG; then
+	# Copy tag locally to make this a single commit
+	echo "➤ Copying tag..."
+	svn cp "trunk" "tags/$VERSION"
+else
+	echo "ℹ︎ Not a tag ref; skipping SVN tag copy"
+fi
 
 # Fix screenshots getting force downloaded when clicking them
 # https://developer.wordpress.org/plugins/wordpress-org/plugin-assets/
