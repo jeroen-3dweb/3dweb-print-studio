@@ -1,6 +1,6 @@
 === Simple Print Customizer for WooCommerce – Packaging, Cups & More ===
 Contributors: jtermaat
-Tags: simple product customizer, print customizer, woocommerce product customizer, packaging customizer, box design tool, label customizer, cup customizer, mug designer, coaster designer, promotional product designer, live preview, drag and drop designer, custom packaging, easy product personalization
+Tags: simple product customizer, print customizer, woocommerce product customizer, packaging customizer, box design tool
 Requires at least: 5.0
 Tested up to: 6.9
 Requires PHP: 7.4
