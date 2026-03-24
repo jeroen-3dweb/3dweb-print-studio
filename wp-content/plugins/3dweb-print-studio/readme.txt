@@ -10,6 +10,8 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 Let customers easily customize simple print products like packaging, cups, and coasters with instant live 3D preview.
 
+Demo: https://feestbekers.nl (this is where you can view the plugin demo, start with the "Start Configuration" button on a product page)
+
 == Description ==
 
 **Design simple print products in real-time 3D.**
