@@ -1,6 +1,6 @@
 === 3DWeb Print Studio — Simple Print Customizer for WooCommerce ===
 Contributors: jtermaat
-Tags: simple product customizer, print customizer, woocommerce product customizer, packaging customizer, print design
+Tags: woocommerce, product customizer, print design, packaging, 3d preview
 Requires at least: 5.0
 Tested up to: 6.9
 Requires PHP: 7.4
@@ -12,7 +12,7 @@ Let customers easily customize simple print products like packaging or cups with
 
 == Description ==
 
-Demo: [View the plugin demo on feestbekers.nl](https://feestbekers.nl) (start with the "Start Configuration" button on a product page)
+Demo: [View the plugin in action on feestbekers.nl](https://feestbekers.nl) (start with the "Start Configuration" button on a product page)
 
 **Design simple print products in real-time 3D.**
 
