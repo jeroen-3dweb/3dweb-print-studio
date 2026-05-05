@@ -4,7 +4,7 @@ Tags: woocommerce, product customizer, print design, packaging, 3d preview
 Requires at least: 5.0
 Tested up to: 6.9
 Requires PHP: 7.4
-Stable tag: 1.0.1
+Stable tag: 1.0.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -12,7 +12,7 @@ Let customers easily customize simple print products like packaging or cups with
 
 == Description ==
 
-Demo: [View the plugin in action on feestbekers.nl](https://feestbekers.nl) (start with the "Start Configuration" button on a product page)
+Demo: [View the plugin in action on feestbekers.nl](https://feestbekers.nl?utm_source=wordpress_plugin&utm_medium=readme&utm_campaign=demo&utm_content=feestbekers_demo) (start with the "Start Configuration" button on a product page)
 
 **Design simple print products in real-time 3D.**
 
