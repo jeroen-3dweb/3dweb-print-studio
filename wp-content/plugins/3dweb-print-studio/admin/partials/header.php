@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<header class="dweb_ps__swoosh-header"></header>
 	<div class="dweb_ps__swoosh-container">
 		<div class="dweb_ps__swoosh-container">
-			<div style="margin-top: 0;">
+			<div class="dweb_ps__header-offset">
 				<div class="dweb_ps__backdrop">
 					<div class="dweb_ps__backdrop-container">
 						<div class="dweb_ps__backdrop-header">

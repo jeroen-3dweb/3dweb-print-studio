@@ -1,58 +1,97 @@
 @use "colors";
-@use "sass:color";
 
 .dweb_ps__button {
-
   align-items: center;
-  background-color: transparent;
-  color: colors.$button-background-color;
-
-  font-size: 16px;
-  font-weight: 400;
-  padding: 14px 22px;
-  border-radius: 10px;
+  justify-content: center;
+  display: inline-flex;
+  gap: 8px;
+  background-color: #ffffff;
+  color: colors.$secondary;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.2;
+  min-height: 32px;
+  padding: 0.4rem 0.8rem;
+  border-radius: 0.45rem;
   text-decoration: none;
-  border: 2px solid colors.$button-background-color;
-  box-shadow: none;
+  border: 1px solid colors.$secondary;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease, color 0.18s ease;
 
   &:hover {
     cursor: pointer;
-    background-color: color.adjust(colors.$button-background-color, $lightness: 88%);
-    color: color.adjust(colors.$button-background-color, $lightness: -10%);
+    background-color: colors.$secondary;
+    border-color: colors.$secondary;
+    color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.22);
   }
 
   &:active {
-    background-color: color.adjust(colors.$button-background-color, $lightness: -5%);
+    background-color: colors.$secondary-dark;
+    border-color: colors.$secondary-dark;
     color: #ffffff;
-    border-color: color.adjust(colors.$button-background-color, $lightness: -10%);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.22);
   }
 
   &:focus-visible {
-    outline: 2px solid color.adjust(colors.$button-background-color, $lightness: 10%);
-    outline-offset: 2px;
+    outline: 3px solid colors.$secondary;
+    outline-offset: 3px;
+    box-shadow: 0 0 0 4px rgba(58, 123, 213, 0.2);
   }
 
   &--normal {
-    min-width: 200px;
+    min-width: 0;
     text-align: center;
-    color: inherit;
+  }
+
+  &--outline {
+    background-color: #ffffff;
+    border-color: colors.$secondary;
+    color: colors.$secondary;
+
+    &:hover,
+    &:focus {
+      background-color: colors.$secondary;
+      border-color: colors.$secondary;
+      color: #ffffff;
+    }
   }
 
   &--primary {
-    background-color: colors.$button-background-color;
+    background-color: colors.$primary;
+    border-color: colors.$primary;
     color: #ffffff;
-    font-weight: 600;
     margin-top: 0;
+    min-width: 5.5rem;
 
     &:hover {
-      background-color: color.adjust(colors.$button-background-color, $lightness: -5%);
+      background-color: colors.$primary-dark;
+      border-color: colors.$primary-dark;
       color: #ffffff;
     }
 
     &:active {
-      background-color: color.adjust(colors.$button-background-color, $lightness: -10%);
+      background-color: colors.$primary-dark;
       color: #ffffff;
-      border-color: color.adjust(colors.$button-background-color, $lightness: -10%);
+      border-color: colors.$primary-dark;
+    }
+
+    &:focus-visible {
+      outline-color: colors.$primary;
+      box-shadow: 0 0 0 4px rgba(196, 0, 5, 0.25);
+    }
+  }
+
+  &--secondary {
+    background-color: colors.$secondary;
+    border-color: colors.$secondary;
+    color: #ffffff;
+
+    &:hover,
+    &:focus {
+      background-color: colors.$secondary-dark;
+      border-color: colors.$secondary-dark;
+      color: #ffffff;
     }
   }
 }

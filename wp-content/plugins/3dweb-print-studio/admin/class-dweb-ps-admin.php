@@ -58,11 +58,14 @@ class DWeb_PS_Admin {
 	 * @since    1.0.0
 	 */
 	public function dweb_ps_admin_enqueue_styles() {
+		$style_path    = plugin_dir_path( __FILE__ ) . 'scss/3dweb-ps-admin.css';
+		$style_version = file_exists( $style_path ) ? (string) filemtime( $style_path ) : $this->version;
+
 		wp_enqueue_style(
 			$this->plugin_name,
 			plugin_dir_url( __FILE__ ) . 'scss/3dweb-ps-admin.css',
 			array(),
-			$this->version,
+			$style_version,
 			'all'
 		);
 	}

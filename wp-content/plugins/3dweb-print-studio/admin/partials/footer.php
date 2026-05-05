@@ -10,8 +10,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 ?>
 <div class="dweb_ps__rating">
-	<?php esc_html_e( 'If you like this plugin please leave us a 5 ★ rating. A huge thanks in advance!', '3dweb-print-studio' ); ?>
-	<a href="https://wordpress.org/plugins/360deg-javascript-viewer/#reviews?rate=5#new-post"
+	<?php esc_html_e( 'If Print Studio helps your webshop, a 5-star review goes a long way.', '3dweb-print-studio' ); ?>
+	<a href="https://wordpress.org/plugins/3dweb-print-studio/#reviews?rate=5#new-post"
 		target="_blank" class="dweb_ps-rating-link" rel="noopener noreferrer">★★★★★</a>
 </div>
 </div>
@@ -19,6 +19,4 @@ if ( ! defined( 'ABSPATH' ) ) {
 </div>
 </div>
 </div>
-</div>
-
 </div>
