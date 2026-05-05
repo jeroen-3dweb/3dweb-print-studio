@@ -33,14 +33,16 @@ jQuery(function ($) {
 
     $('body').on('click', '#dweb_ps-save-settings', function (e) {
         e.preventDefault();
-        $(e.target).html('saving..')
+        const $button = $(e.currentTarget);
+        const defaultLabel = $button.text().trim();
+        $button.text('Saving...');
         const form = $(this).closest('.dweb_ps__settings').find('form').first();
         if (!form.length) {
-            $(e.target).html('error');
+            $button.text('Save failed');
             setTimeout(() => {
-                $(e.target).html('save');
+                $button.text(defaultLabel);
             }, 2000);
-            $(e.target).parent().find('#dweb_ps__save-settings-error').text('No settings form found on this page.');
+            $button.parent().find('#dweb_ps__save-settings-error').text('No settings form found on this page.');
             return;
         }
         const endPoint = form.data('source');
@@ -50,26 +52,28 @@ jQuery(function ($) {
         }, {});
 
         const handleError = (data) => {
-            $(e.target).html('error when saving');
+            $button.text('Save failed');
             setTimeout(() => {
-                $(e.target).html('save');
+                $button.text(defaultLabel);
             }, 2000)
 
             const errors = [];
-            $.each(data.data, function (key, val) {
-                if (val.error) {
-                    errors.push(val.error);
-                }
-            });
-            $(e.target).parent().find('#dweb_ps__save-settings-error').text(errors.join(' | '));
+            if (data && data.data) {
+                $.each(data.data, function (key, val) {
+                    if (val && val.error) {
+                        errors.push(val.error);
+                    }
+                });
+            }
+            $button.parent().find('#dweb_ps__save-settings-error').text(errors.join(' | ') || 'Could not save these settings.');
         }
 
         const handleSuccess = (data) => {
-            $(e.target).html('saved!');
+            $button.text('Saved');
             setTimeout(() => {
-                $(e.target).html('save');
+                $button.text(defaultLabel);
             }, 2000)
-            $(e.target).parent().find('#dweb_ps__save-settings-error').html('');
+            $button.parent().find('#dweb_ps__save-settings-error').html('');
         }
 
         window.DWEB_PS_ADMIN.sync(endPoint, data).then((data) => {
@@ -88,21 +92,22 @@ jQuery(function ($) {
     // Test credentials button
     $('body').on('click', '#dweb_ps-test-auth', function (e) {
         e.preventDefault();
-        const $btn = $(e.target);
+        const $btn = $(e.currentTarget);
+        const defaultLabel = $btn.text().trim();
         const $result = $('#dweb_ps__check-auth-result');
         const $form = $btn.closest('form');
         const values = $form.serializeArray().reduce(function (obj, item) {
             obj[item.name] = item.value;
             return obj;
         }, {});
-        $btn.html('Testing...');
+        $btn.text('Testing...');
         $result.removeClass('dweb_ps__error').removeClass('dweb_ps__success').html('');
 
         window.DWEB_PS_ADMIN
             .sync('dweb_ps-check-auth', values, 'get')
             .then((res) => {
                 console.log(res);
-                $btn.html('Test credentials');
+                $btn.text(defaultLabel);
                 const teamName = (res && res.data  && res.data.team && res.data.team.name)
                     ? res.data.team.name
                     : null;
@@ -112,7 +117,7 @@ jQuery(function ($) {
                 $result.addClass('dweb_ps__success').text(msg);
             })
             .catch((err) => {
-                $btn.html('Test credentials');
+                $btn.text(defaultLabel);
                 const msg = (err && err.data && err.data.message) ? err.data.message : (err.message || 'Authentication failed.');
                 $result.addClass('dweb_ps__error').text(msg);
                 console.warn(err);

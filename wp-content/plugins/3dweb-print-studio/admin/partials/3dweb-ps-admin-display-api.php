@@ -16,10 +16,14 @@ require '3dweb-ps-settings-helper.php';
 	<div class="dweb_ps__settings">
 		<h2><?php esc_html_e( 'API Credentials', '3dweb-print-studio' ); ?></h2>
 		<p class="dweb_ps__settings__intro">
-			<?php esc_html_e( 'Enter your API credentials to connect the plugin with your 3DWeb environment.', '3dweb-print-studio' ); ?>
-			<?php esc_html_e( 'Need credentials? Get them from', '3dweb-print-studio' ); ?>
-			<span class="external-link"><a href="https://3dweb.io" target="_blank" rel="noopener noreferrer">3dweb.io</a></span>.
+			<?php esc_html_e( 'Connect your webshop to 3DWeb so customers can design and preview products before production.', '3dweb-print-studio' ); ?>
 		</p>
+
+		<div class="dweb_ps__value-note">
+			<div class="dweb_ps__value-note-title"><?php esc_html_e( 'Need an API token?', '3dweb-print-studio' ); ?></div>
+			<p class="dweb_ps__value-note-text"><?php esc_html_e( 'Create a free 3DWeb account to get your dashboard token. No subscription; only pay when a design is completed.', '3dweb-print-studio' ); ?></p>
+			<a href="https://3dweb.io?utm_source=wordpress_plugin&amp;utm_medium=admin&amp;utm_campaign=api_credentials&amp;utm_content=create_free_account" target="_blank" rel="noopener noreferrer" class="dweb_ps__button dweb_ps__button--normal dweb_ps__button--secondary"><?php esc_html_e( 'Create free account', '3dweb-print-studio' ); ?></a>
+		</div>
 
 		<form method='post' data-source="<?php echo esc_attr( DWeb_PS_ADMIN_API::PATH ); ?>">
 
@@ -28,44 +32,18 @@ require '3dweb-ps-settings-helper.php';
 				echo wp_kses(
 					dweb_ps_setting_create_row(
 						__( 'Token', '3dweb-print-studio' ),
-						__( 'Paste your API token.', '3dweb-print-studio' ),
+						__( 'Paste your API token (get it from your 3dweb.io dashboard).', '3dweb-print-studio' ),
 						DWeb_PS_ADMIN_API::TOKEN,
 						get_option( DWeb_PS_ADMIN_API::TOKEN, '' ),
-						'text'
-					),
-					dweb_ps_setting_allowed_html()
-				);
-				?>
-				<?php
-				echo wp_kses(
-					dweb_ps_setting_create_row(
-						__( 'Configurator Host', '3dweb-print-studio' ),
-						__( 'Base URL of your configurator API host.', '3dweb-print-studio' ),
-						DWeb_PS_ADMIN_API::CONFIGURATOR_HOST,
-						get_option( DWeb_PS_ADMIN_API::CONFIGURATOR_HOST, DWeb_PS_API::DEFAULT_CONFIGURATOR_HOST ),
-						'text'
-					),
-					dweb_ps_setting_allowed_html()
-				);
-				?>
-				<?php
-				echo wp_kses(
-					dweb_ps_setting_create_select(
-						__( 'API Version', '3dweb-print-studio' ),
-						__( 'Version used for API requests.', '3dweb-print-studio' ),
-						DWeb_PS_ADMIN_API::CONFIGURATOR_HOST_VERSION,
-						get_option( DWeb_PS_ADMIN_API::CONFIGURATOR_HOST_VERSION, DWeb_PS_API::DEFAULT_API_VERSION ),
-						array(
-							array(
-								'label' => 'v1',
-								'value' => 'v1',
-							),
-						)
+						'textarea'
 					),
 					dweb_ps_setting_allowed_html()
 				);
 				?>
 			</div>
+
+			<input type="hidden" name="<?php echo esc_attr( DWeb_PS_ADMIN_API::CONFIGURATOR_HOST ); ?>" value="<?php echo esc_attr( get_option( DWeb_PS_ADMIN_API::CONFIGURATOR_HOST, DWeb_PS_API::DEFAULT_CONFIGURATOR_HOST ) ); ?>">
+			<input type="hidden" name="<?php echo esc_attr( DWeb_PS_ADMIN_API::CONFIGURATOR_HOST_VERSION ); ?>" value="<?php echo esc_attr( get_option( DWeb_PS_ADMIN_API::CONFIGURATOR_HOST_VERSION, DWeb_PS_API::DEFAULT_API_VERSION ) ); ?>">
 
 				<div class="dweb_ps__settings__row dweb_ps__settings__row--actions">
 					<div class="dweb_ps__settings__meta">
@@ -74,7 +52,7 @@ require '3dweb-ps-settings-helper.php';
 					</div>
 					<div class="dweb_ps__settings-holder">
 						<div class="dweb_ps__settings__actions">
-							<a id="dweb_ps-test-auth" class="dweb_ps__button dweb_ps__button--normal"><?php esc_html_e( 'Test credentials', '3dweb-print-studio' ); ?></a>
+							<a id="dweb_ps-test-auth" class="dweb_ps__button dweb_ps__button--normal dweb_ps__button--secondary"><?php esc_html_e( 'Test credentials', '3dweb-print-studio' ); ?></a>
 							<small id="dweb_ps__check-auth-result" class="dweb_ps__auth-result"></small>
 						</div>
 					</div>

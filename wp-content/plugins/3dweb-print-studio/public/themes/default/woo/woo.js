@@ -163,17 +163,17 @@
 					const label         = labelTemplate.replace( '{reference}', config.team_reference || '' );
 					const designUrl     = this.getDesignUrlFromAssets( assets );
 
-					const $wrapper = $( '<div class="cnf3dweb-session-reference" style="padding: 5px; display: inline-flex;"></div>' );
+					const $wrapper = $( '<div class="cnf3dweb-session-reference"></div>' );
 
 					if (designUrl) {
-						const $link = $( '<a></a>' );
+						const $link = $( '<a class="cnf3dweb-session-reference__link"></a>' );
 						$link.attr( 'href', designUrl );
 						$link.attr( 'target', '_blank' );
 						$link.attr( 'rel', 'noopener noreferrer' );
 						$link.text( label );
 						$wrapper.append( $link );
 					} else {
-						const $text = $( '<span></span>' );
+						const $text = $( '<span class="cnf3dweb-session-reference__text"></span>' );
 						$text.text( label );
 						$wrapper.append( $text );
 					}

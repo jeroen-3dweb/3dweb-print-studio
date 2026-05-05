@@ -21,7 +21,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-$dweb_ps_version = '1.0.0';
+$dweb_ps_version = '1.0.1';
 define( 'DWEB_PS_VERSION', $dweb_ps_version );
 define( 'DWEB_PS_PATH', plugin_dir_path( __FILE__ ) );
 define( 'DWEB_PS_MAIN_URL', __FILE__ );

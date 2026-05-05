@@ -30,6 +30,7 @@ function dweb_ps_setting_allowed_html() {
 			'value'        => true,
 			'checked'      => true,
 			'disabled'     => true,
+			'readonly'     => true,
 			'autocomplete' => true,
 			'placeholder'  => true,
 		),
@@ -37,6 +38,14 @@ function dweb_ps_setting_allowed_html() {
 			'name'     => true,
 			'class'    => true,
 			'disabled' => true,
+		),
+		'textarea' => array(
+			'name'        => true,
+			'class'       => true,
+			'disabled'    => true,
+			'readonly'    => true,
+			'rows'        => true,
+			'placeholder' => true,
 		),
 		'option' => array(
 			'value'    => true,
@@ -54,9 +63,10 @@ function dweb_ps_setting_allowed_html() {
  * @param mixed  $value       Field value.
  * @param string $type        Input type.
  * @param bool   $disabled    Whether the field is disabled.
+ * @param bool   $readonly    Whether the field is read-only.
  * @return string
  */
-function dweb_ps_setting_create_row( $label, $description, $name, $value, $type = 'number', $disabled = false ) {
+function dweb_ps_setting_create_row( $label, $description, $name, $value, $type = 'number', $disabled = false, $readonly = false ) {
 	$checked = '';
 	if ( 'checkbox' === $type ) {
 		$checked = $value ? 'checked' : '';
@@ -64,6 +74,26 @@ function dweb_ps_setting_create_row( $label, $description, $name, $value, $type 
 	}
 
 	$disabled_attr = $disabled ? 'disabled' : '';
+	$readonly_attr = $readonly ? 'readonly' : '';
+	$field_markup  = sprintf(
+		'<input class="regular-text ltr dweb_ps__settings__input" type="%s" name="%s" %s %s %s value="%s"/>',
+		esc_attr( $type ),
+		esc_attr( $name ),
+		$checked,
+		$disabled_attr,
+		$readonly_attr,
+		esc_attr( $value )
+	);
+
+	if ( 'textarea' === $type ) {
+		$field_markup = sprintf(
+			'<textarea class="regular-text ltr dweb_ps__settings__input dweb_ps__settings__input--textarea" name="%s" rows="4" %s %s>%s</textarea>',
+			esc_attr( $name ),
+			$disabled_attr,
+			$readonly_attr,
+			esc_textarea( $value )
+		);
+	}
 
 	return sprintf(
 		'
@@ -71,25 +101,17 @@ function dweb_ps_setting_create_row( $label, $description, $name, $value, $type 
                 <div class="dweb_ps__settings__meta">
                     <div class="dweb_ps__settings__label">
                         %s
-                    </div>
-                    <small class="dweb_ps__settings-holder__description">%s</small>
-                </div>
-                <div class="dweb_ps__settings-holder">
-                        <input class="regular-text ltr dweb_ps__settings__input" type="%s"
-                               name="%s"
-                               %s
-                               %s
-                               value="%s"/>
-                </div>
-            </div>
+                     </div>
+                     <small class="dweb_ps__settings-holder__description">%s</small>
+                 </div>
+                 <div class="dweb_ps__settings-holder">
+                        %s
+                 </div>
+             </div>
       ',
 		esc_html( $label ),
 		esc_html( $description ),
-		esc_attr( $type ),
-		esc_attr( $name ),
-		$checked,
-		$disabled_attr,
-		esc_attr( $value )
+		$field_markup
 	);
 }
 
@@ -101,15 +123,21 @@ function dweb_ps_setting_create_row( $label, $description, $name, $value, $type 
  * @param string $name        Field name.
  * @param string $value       Selected value.
  * @param array  $options     Select options.
+ * @param bool   $disabled    Whether the select is disabled.
  * @return string
  */
-function dweb_ps_setting_create_select( $label, $description, $name, $value, $options ) {
-	$select = '<select name="' . esc_attr( $name ) . '">';
+function dweb_ps_setting_create_select( $label, $description, $name, $value, $options, $disabled = false ) {
+	$disabled_attr = $disabled ? ' disabled' : '';
+	$select        = '<select name="' . esc_attr( $name ) . '"' . $disabled_attr . '>';
 	foreach ( $options as $option ) {
 		$selected = $option['value'] === $value ? 'selected' : '';
 		$select  .= '<option value="' . esc_attr( $option['value'] ) . '" ' . $selected . '>' . esc_html( $option['label'] ) . '</option>';
 	}
 	$select .= '</select>';
+
+	if ( $disabled ) {
+		$select .= '<input type="hidden" name="' . esc_attr( $name ) . '" value="' . esc_attr( $value ) . '"/>';
+	}
 
 	return sprintf(
 		'
