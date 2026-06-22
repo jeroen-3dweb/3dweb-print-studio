@@ -7,7 +7,7 @@ Author: Jeroen Termaat
 Author URI: https://3dweb.nl
 Developer: Jeroen Termaat
 Developer URI: https://3dweb.nl
-Version: 1.0.4
+Version: 1.0.5
 Requires at least: 5.0
 Requires PHP: 7.4
 Last Modified: 2026-06-22
@@ -22,7 +22,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-$dweb_ps_version = '1.0.4';
+$dweb_ps_version = '1.0.5';
 define( 'DWEB_PS_VERSION', $dweb_ps_version );
 define( 'DWEB_PS_PATH', plugin_dir_path( __FILE__ ) );
 define( 'DWEB_PS_MAIN_URL', __FILE__ );

@@ -4,7 +4,7 @@ Tags: woocommerce, product customizer, print design, packaging, 3d preview
 Requires at least: 5.0
 Tested up to: 7.0
 Requires PHP: 7.4
-Stable tag: 1.0.4
+Stable tag: 1.0.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -93,6 +93,10 @@ When you add a product to WooCommerce and assign an SKU that matches a product i
 3. Example cup or promotional product design.
 
 == Changelog ==
+
+= 1.0.5 =
+
+* Fix WordPress.org automatic update delivery.
 
 = 1.0.4 =
 

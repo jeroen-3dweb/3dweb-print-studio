@@ -1,8 +1,6 @@
 name: CI
 on:
   push:
-    branches:
-      - develop
     tags:
       - "*"
 
@@ -40,4 +38,3 @@ jobs:
           SVN_PASSWORD: ${{ secrets.SVN_PASSWORD }}
           SLUG : 3dweb-print-studio
           ASSETS_DIR : plugin-assets
-
