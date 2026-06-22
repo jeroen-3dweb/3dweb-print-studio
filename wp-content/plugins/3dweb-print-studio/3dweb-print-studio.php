@@ -7,9 +7,9 @@ Author: Jeroen Termaat
 Author URI: https://3dweb.nl
 Developer: Jeroen Termaat
 Developer URI: https://3dweb.nl
-Version: 1.0.2
+Version: 1.0.3
 Requires PHP: 7.4
-Last Modified: 2026-01-27
+Last Modified: 2026-06-22
 License: GPLv2
 Text Domain: 3dweb-print-studio
 Domain Path: /languages
@@ -21,7 +21,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-$dweb_ps_version = '1.0.2';
+$dweb_ps_version = '1.0.3';
 define( 'DWEB_PS_VERSION', $dweb_ps_version );
 define( 'DWEB_PS_PATH', plugin_dir_path( __FILE__ ) );
 define( 'DWEB_PS_MAIN_URL', __FILE__ );
