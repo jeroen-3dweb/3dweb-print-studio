@@ -4,7 +4,7 @@ Tags: woocommerce, product customizer, print design, packaging, 3d preview
 Requires at least: 5.0
 Tested up to: 6.9
 Requires PHP: 7.4
-Stable tag: 1.0.2
+Stable tag: 1.0.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -93,6 +93,11 @@ When you add a product to WooCommerce and assign an SKU that matches a product i
 3. Example cup or promotional product design.
 
 == Changelog ==
+
+= 1.0.3 =
+
+* Fixed product gallery preview images appearing too small after returning from the configurator.
+* Keep replaced preview images at full gallery width in themes without explicit gallery image CSS.
 
 = 1.0.0 =
 

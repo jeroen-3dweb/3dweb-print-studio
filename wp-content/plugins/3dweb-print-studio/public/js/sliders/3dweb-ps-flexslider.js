@@ -35,6 +35,20 @@
 		}
 	}
 
+	function applyGalleryImageSizing(img) {
+		if ( ! img) {
+			return;
+		}
+
+		// Keep the replaced preview at full gallery width. Many themes (including
+		// Emoza on feestbekers.nl) do not set width:100% on main gallery images,
+		// so removing inline sizing would shrink the preview to its native width.
+		img.style.width     = '100%';
+		img.style.height    = 'auto';
+		img.style.objectFit = '';
+		img.style.display   = 'block';
+	}
+
 	function syncViewportHeight(viewport, slide) {
 		if ( ! viewport || ! slide) {
 			return;
@@ -172,9 +186,9 @@
 			}
 		}
 
-		// Remove temporary image sizing, then lock the viewport to the real slide height
-		// so the gallery keeps occupying space in the document flow.
-		clearTemporarySizing( img );
+		// Lock the viewport to the real slide height so the gallery keeps occupying
+		// space in the document flow, while keeping the image at full gallery width.
+		applyGalleryImageSizing( img );
 		syncViewportHeight( viewport, slide );
 
 		if (window.jQuery) {

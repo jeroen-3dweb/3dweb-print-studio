@@ -1,5 +1,11 @@
 /* default css */
 
+.woocommerce-product-gallery .woocommerce-product-gallery__image img {
+	display: block;
+	width: 100%;
+	height: auto;
+}
+
 .woocommerce-product-gallery.cnf3dweb-gallery-loading {
 	position: relative;
 }
